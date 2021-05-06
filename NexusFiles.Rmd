@@ -1,0 +1,49 @@
+---
+title: "Nexus Files"
+author: "Audrey Bahr"
+date: "5.6.21"
+output: html_notebook
+---
+
+Testing nexus files.
+
+```{r}
+install.packages("ape")
+library(ape)
+# install BiocManager prior
+BiocManager::install("ggtree")
+library(ggtree)
+install.packages("phylobase")
+library(phylobase)
+```
+
+Reference for readNexus: https://rdrr.io/rforge/phylobase/man/readNexus.html
+```{r}
+# I don't think ggtree can read this
+verts <- read.nexus("./Potential Nexus Files/vertebrates.nex")
+
+# use readNexus from phylobase package to get file in a format where ggtree can use it
+# reads part of the nexus file into a phylocomp object
+verts_pb <- readNexus("./Potential Nexus Files/vertebrates.nex", type = "tree")
+```
+
+Simple tree examples - could analyze the differences between the trees, same organisms different ordering.
+```{r}
+# deliberately incorrect tree
+ggtree(verts_pb[[1]]) + geom_tiplab()
+
+# better tree
+ggtree(verts_pb[[2]]) + geom_tiplab()
+```
+
+Bigger tree - I think these are dinosaurs (can't read the labels)
+```{r}
+maybe_dinos <- readNexus("./Potential Nexus Files/S13026.nex", type = "tree")
+ggtree(maybe_dinos) + geom_tiplab()
+```
+
+```{r}
+test <- readNexus("./Potential Nexus Files/T6506.nex", type = "tree")
+ggtree(test) + geom_tiplab()
+```
+
