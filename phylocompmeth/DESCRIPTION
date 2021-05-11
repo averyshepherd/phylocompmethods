@@ -5,9 +5,12 @@ Authors@R:
     person(given = "Avery",
            family = "Shepherd",
            role = c("aut", "cre"),
-           email = "ashepherd@utexas.edu"))
+           email = "ashepherd@utexas.edu")
 Description: The function included in this package 
 Depends: R (>= 3.5)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports:
+    ape
+RoxygenNote: 7.1.1
