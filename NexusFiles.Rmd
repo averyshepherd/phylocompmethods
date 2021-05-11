@@ -2,18 +2,20 @@
 title: "Nexus Files"
 author: "Audrey Bahr"
 date: "5.6.21"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 Testing nexus files.
 
 ```{r}
-install.packages("ape")
+# install.packages("ape")
 library(ape)
 # install BiocManager prior
-BiocManager::install("ggtree")
+# BiocManager::install("ggtree")
 library(ggtree)
-install.packages("phylobase")
+# install.packages("phylobase")
 library(phylobase)
 ```
 

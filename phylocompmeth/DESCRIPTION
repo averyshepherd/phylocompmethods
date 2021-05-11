@@ -1,0 +1,13 @@
+Package: phylocompmeth
+Title: Phylogenetic Comparative Methods
+Version: 0.0.1.0
+Authors@R: 
+    person(given = "Avery",
+           family = "Shepherd",
+           role = c("aut", "cre"),
+           email = "ashepherd@utexas.edu"))
+Description: The function included in this package 
+Depends: R (>= 3.5)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true

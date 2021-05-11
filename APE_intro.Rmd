@@ -57,12 +57,21 @@ groupInfo <- split(tree$tip.label,
 head(groupInfo)
 ```
 
+# this should work.... but my code is not working with ggtree and i cannot diagnose so rip
+```{r}
+a <- groupOTU(tree, groupInfo)
+ggtree(a, aes(color = group), layout='circular')
+```
+
 ```{r}
 
 ```
 
+
 ```{r}
+
 ```
+
 
 
 
