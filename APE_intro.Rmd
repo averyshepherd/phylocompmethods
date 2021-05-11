@@ -1,0 +1,68 @@
+---
+title: "APE Package"
+author: "Avery Shepherd"
+date: "5/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+The <code>ape</code> package (Analysis of Phylogenetics and Evolution) is used within the community of evolutionary biologists for data analysis and as a framework for the development of new analytical methods.
+```{r}
+library(ape)
+library(ggtree)
+```
+
+To read and load trees into R using ape, you can use the <code>read.nexus</code> or <code>read.tree</code> functions. The <code>read.nexus</code> function reads NEXUS formatted files while the <code>read.tree</code> function reads Newick formatted trees.
+```{r}
+tree <- read.nexus("./Potential Nexus Files/T6506.nex")
+tree
+```
+
+When the tree is read in and processed, it creates a list of class phylo
+
+```{r}
+class(tree)
+str(tree)
+```
+
+The <code>edge</code> variable in the tree contains the beginning and ending node number for the nodes and tips in the tree
+```{r}
+head(tree$edge)
+```
+
+The <code>tip.label</code> variable in the tree contains  the labels for the tips in the tree
+```{r}
+head(tree$tip.label)
+```
+
+<code>Nnode</code> contains the number of internal nodes in the tree
+```{r}
+head(tree$Nnode)
+```
+
+Graphical output in form of a cladogram can be obtained by calling <code>plot</code> with the tree as a parameter. This calls the <code>plot.phylo</code> function of the <code>ape</code> package. 
+```{r}
+plot(tree, cex = 0.5)
+```
+
+
+
+```{r}
+groupInfo <- split(tree$tip.label, 
+                   gsub("_\\w+", "", tree$tip.label))
+head(groupInfo)
+```
+
+```{r}
+
+```
+
+```{r}
+```
+
+
+
