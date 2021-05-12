@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 The <code>ape</code> package (Analysis of Phylogenetics and Evolution) is used within the community of evolutionary biologists for data analysis and as a framework for the development of new analytical methods.
 ```{r}
 library(ape)
-library(ggtree)
 ```
 
 To read and load trees into R using ape, you can use the <code>read.nexus</code> or <code>read.tree</code> functions. The <code>read.nexus</code> function reads NEXUS formatted files while the <code>read.tree</code> function reads Newick formatted trees.
