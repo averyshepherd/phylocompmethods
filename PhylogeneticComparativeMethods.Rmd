@@ -1,0 +1,7 @@
+title: "Phylogenetic Comparative Methods"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Phylogenetic Comparative Methods}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+  

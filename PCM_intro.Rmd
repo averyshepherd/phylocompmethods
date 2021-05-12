@@ -1,0 +1,24 @@
+---
+title: "PCM_intro"
+author: "Avery Shepherd"
+date: "5/12/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Introduction to phylogenies
+Phylogenetic trees are branching diagrams illustrating the evolutionary relationships among taxa. 
+  * Each **node** represents a speciation event in evolution.
+  * A **branch** connects two nodes of the tree
+  * **Terminal Nodes** represent the data under comparison. Also known as **Operational Taxonomic Units** *(OTUs)*
+```{r}
+
+```
+
+```{r}
+
+```
