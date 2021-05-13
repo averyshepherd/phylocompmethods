@@ -48,7 +48,6 @@ par(mar=c(5.1,4.1,4.1,2.1)) ## reset margins to default
 https://rdrr.io/cran/phytools/man/phyl.pca.html
 
 ```{r}
-
 data(anoletree)
 data(anole.data)
 ## run phylogenetic PCA
@@ -95,7 +94,7 @@ cols<-setNames(sample(rainbow(n=Ntip(World.tree))),
     World.tree$tip.label)
 plot(obj,colors=cols,ftype="i",fsize=0.6,cex.points=c(0.7,1.2))
 ```
-```
+
 'phylANOVA': performs simulated based phylogenetic ANOVA and can conduct post-hoc comparisons of means among groups
 
 https://rdrr.io/cran/phytools/man/phylANOVA.html

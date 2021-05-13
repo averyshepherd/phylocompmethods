@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
+## <code>APE</code> package and the <code>phylo</code> class
 The <code>ape</code> package (Analysis of Phylogenetics and Evolution) is used within the community of evolutionary biologists for data analysis and as a framework for the development of new analytical methods.
 ```{r}
 library(ape)
@@ -22,7 +22,6 @@ tree
 ```
 
 When the tree is read in and processed, it creates a list of class phylo
-
 ```{r}
 class(tree)
 str(tree)

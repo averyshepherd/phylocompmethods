@@ -8,13 +8,25 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+# Phylogenetic Comparative Methods
 
-
-# Introduction to phylogenies
+## Introduction to phylogenies
 Phylogenetic trees are branching diagrams illustrating the evolutionary relationships among taxa. 
-  * Each **node** represents a speciation event in evolution.
-  * A **branch** connects two nodes of the tree
-  * **Terminal Nodes** represent the data under comparison. Also known as **Operational Taxonomic Units** *(OTUs)*
+
+* Each **node** represents a speciation event in evolution.
+* A **branch** connects two nodes of the tree
+* **Terminal Nodes** represent the data under comparison. Also known as **Operational Taxonomic Units** *(OTUs)*
+
+# Introduction to Phylogenetic comparative methods (PCMs)
+PCMs enable us to study the history of organismal evolution and diversification. With it we can explore in depth these topics:
+
+* Evolutionary ties between organisms
+
+* Find and understand relationships between an ancestral sequence and its descendants
+
+* Estimate time of divergence between a group of organisms that share a common ancestor
+
+  
 ```{r}
 
 ```
