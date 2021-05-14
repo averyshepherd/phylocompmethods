@@ -64,3 +64,81 @@ Graphical output in form of a cladogram can be obtained by calling <code>plot</c
 ```{r}
 plot(tree, cex = 0.5)
 ```
+
+#phytools package
+The <code>phytools</code> package (Phylogenetic Tools for Comparative Biology (and Other Things)) takes advantage of functionality developed in other packages such as <code>ape</code> for many types of phylogenetic tree input and manipulation 
+
+```{r}
+library(phytools)
+```
+
+The <code>phylo.heatmap</code> function creates a multivariate phylogenetic heatmap
+
+```{r}
+library(maps)
+```
+
+To read and load trees into R for <code>phytools</code> for this function, you can use <code>anoletree</code> which is a phylogeny of Greater Antillean anole species with a mapped discrete character - ecomorph class and <code>anole.data</code> which is a data frame of morphological characters (both data and tree are from Mahler et al. 2010)
+
+```{r}
+data("anoletree")
+data("anole.data")
+```
+
+Using <code>as.matrix</code> you can convert the anole data table into a matrix 
+
+```{r}
+anole.data <-as.matrix(anole.data)
+```
+
+Next you can compute the phylogenetic residuals 
+
+```{r}
+anole.data<-as.matrix(anole.data)
+anole.resids<-cbind(anole.data[,1],
+    phyl.resid(anoletree,anole.data[,1,drop=FALSE],
+    anole.data[,2:ncol(anole.data)])$resid)
+colnames(anole.resids)[1]<-"SVL"
+
+```
+
+You can plot the phylogenetic heatmap using <code>phylo.heatmap</code>
+
+```{r}
+phylo.heatmap(anoletree,anole.resids,
+    split=c(0.7,0.3),fsize=c(0.4,0.8,0.8),
+    standardize=TRUE)
+```
+
+The <code>phyl.pca</code> function performs phylogenetic PCA
+
+You can use the same anole data set from Mahler et al. 
+
+```{r}
+data(anoletree)
+data(anole.data)
+```
+
+Using <code>phyl.pca</code> allows you to run the phylogenetic PCA 
+
+```{r}
+anole.pca <- phyl.pca(anoletree, anole.data)
+```
+
+<code>print</code> and <code>summary</code> allows you to see the results of the PCA (this shows you the loadings of the various PC's and proportion of variance)
+
+```{r}
+print(anole.pca)
+summary(anole.pca)
+```
+
+<code>plot</code> gives you a screeplot. This shows you how much variation is explained by each component (each PC)
+```{r}
+plot(anole.pca)
+```
+
+To visualize the loadings, you can use <code>biplot</code>
+
+```{r}
+biplot(anole.pca)
+```
