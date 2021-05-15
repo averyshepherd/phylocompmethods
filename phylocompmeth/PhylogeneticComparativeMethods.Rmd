@@ -65,7 +65,7 @@ Graphical output in form of a cladogram can be obtained by calling <code>plot</c
 plot(tree, cex = 0.5)
 ```
 
-#phytools package
+## Phytools package
 The <code>phytools</code> package (Phylogenetic Tools for Comparative Biology (and Other Things)) takes advantage of functionality developed in other packages such as <code>ape</code> for many types of phylogenetic tree input and manipulation 
 
 ```{r}
