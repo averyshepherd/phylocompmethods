@@ -91,7 +91,7 @@ Using <code>as.matrix</code> you can convert the anole data table into a matrix
 anole.data <-as.matrix(anole.data)
 ```
 
-Next you can compute the phylogenetic residuals 
+Next you can compute the phylogenetic residuals. 
 
 ```{r}
 anole.data<-as.matrix(anole.data)
@@ -142,3 +142,40 @@ To visualize the loadings, you can use <code>biplot</code>
 ```{r}
 biplot(anole.pca)
 ```
+
+'phylo.to.map' creates an object of class "phylo.to.map" and plots that object (where tips of the tree point to coordinates on a geographic map). It is possible to map more than one geographic location per taxon.
+
+```{r}
+library(mapdata)
+```
+
+Simulating data to plot.
+   ?what are the units of scale?
+   ?do we need a citation for this simulation code or did Emily write it all?
+```{r}
+# 10 species, total length of the tree is 100
+World.tree<-pbtree(n=10,scale=100)
+# setting labels for branches
+World.tree$tip.label<-replicate(Ntip(World.tree),
+    paste(sample(LETTERS,1),".",
+    paste(sample(letters,round(runif(n=1,min=3,max=10))),
+    collapse=""),
+    sep=""))
+# simulating latitudes and longitudes
+lat<-fastBM(World.tree,sig2=10,bounds=c(-90,90))
+long<-fastBM(World.tree,sig2=80,bounds=c(-180,180))
+World<-cbind(lat,long)
+for(i in 1:Ntip(World.tree)){
+    ni<-sample(0:2,1)
+    for(j in 1:ni){ 
+        World<-rbind(World,c(World[i,1]+rnorm(n=1,sd=4),
+            World[i,2]+rnorm(n=1,sd=4)))
+        rownames(World)[nrow(World)]<-rownames(World)[i]
+    }
+}
+
+head(World, 20)
+```
+
+
+
