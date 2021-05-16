@@ -66,7 +66,7 @@ biplot(anole.pca)
 install.packages("mapdata")
 library(mapdata)
 
-World.tree<-pbtree(n=26,scale=100)
+World.tree<-pbtree(n=10, scale = 10)
 World.tree$tip.label<-replicate(Ntip(World.tree),
     paste(sample(LETTERS,1),".",
     paste(sample(letters,round(runif(n=1,min=3,max=10))),

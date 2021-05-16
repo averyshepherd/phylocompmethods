@@ -194,4 +194,35 @@ cols<-setNames(sample(rainbow(n=Ntip(World.tree))),
 plot(obj,colors=cols,ftype="i",fsize=0.8,cex.points=c(0.7,1.2))
 ```
 
+Next, we will look at <code>phylANOVA()</code> which performs simulation based phylogenetic ANOVA and can conduct post-hoc comparisons of means among groups.
+
+```{r}
+# simulate data for the analysis
+tree<-pbtree(n=100)
+Q<-matrix(c(-2,1,1,
+    1,-2,1,
+    1,1,-2),3,3)
+rownames(Q)<-colnames(Q)<-letters[1:3]
+x<-as.factor(sim.history(tree,Q)$states)
+y1<-fastBM(tree)
+y2<-fastBM(tree,sig2=0.5)+as.numeric(x)
+```
+
+```{r}
+phenogram(tree,y1,ftype="off",col=make.transparent("blue",0.5))
+tiplabels(pie=to.matrix(x,letters[1:3]),
+    piecol=colorRampPalette(c("blue", "yellow"))(3),
+    cex=0.4)
+    
+phenogram(tree,y2,ftype="off",col=make.transparent("blue",0.5))
+tiplabels(pie=to.matrix(x,letters[1:3]),
+    piecol=colorRampPalette(c("blue", "yellow"))(3),
+    cex=0.4)
+```
+
+```{r}
+phylANOVA(tree,x,y1)
+
+phylANOVA(tree,x,y2)
+```
 
