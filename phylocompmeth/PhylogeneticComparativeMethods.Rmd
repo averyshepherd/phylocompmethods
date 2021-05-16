@@ -132,7 +132,7 @@ print(anole.pca)
 summary(anole.pca)
 ```
 
-<code>plot</code> gives you a screeplot. This shows you how much variation is explained by each component (each PC)
+<code>plot</code> gives you a screeplot. This shows you how much variation is explained by each component (each PC).
 ```{r}
 plot(anole.pca)
 ```
@@ -149,7 +149,7 @@ biplot(anole.pca)
 library(mapdata)
 ```
 
-Simulating data to plot.
+We can simulate a phylogenetic tree to plot with <code>pb.tree()</code>.
    ?what are the units of scale?
    ?do we need a citation for this simulation code or did Emily write it all?
 ```{r}
@@ -164,6 +164,7 @@ World.tree$tip.label<-replicate(Ntip(World.tree),
 # simulating latitudes and longitudes
 lat<-fastBM(World.tree,sig2=10,bounds=c(-90,90))
 long<-fastBM(World.tree,sig2=80,bounds=c(-180,180))
+# group data
 World<-cbind(lat,long)
 for(i in 1:Ntip(World.tree)){
     ni<-sample(0:2,1)
@@ -174,8 +175,23 @@ for(i in 1:Ntip(World.tree)){
     }
 }
 
+```
+
+We can see the data we've simulated here.
+```{r}
 head(World, 20)
 ```
 
+Use <code>phylo.to.map()</code> to display the geographic locations associated with each species.
+```{r}
+obj <- phylo.to.map(World.tree, World, plot=FALSE)
+# default settings
+plot(obj, ftype="i")
+
+# colors, font size, point size, etc. can be customized
+cols<-setNames(sample(rainbow(n=Ntip(World.tree))),
+    World.tree$tip.label)
+plot(obj,colors=cols,ftype="i",fsize=0.8,cex.points=c(0.7,1.2))
+```
 
 
